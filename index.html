@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -7,33 +5,33 @@
   <title>Loading...</title>
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G03NHX4D9G"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-G03NHX4D9G');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G03NHX4D9G"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G03NHX4D9G');
+  </script>
 </head>
 
 <body>
-  <script>
-    const destinations = [
-      "https://braceslinear.com/d40w8mx5c?key=e15240371508f21838848c29a618630a"
-    ];
+<script>
+  const destination = "https://braceslinear.com/d40w8mx5c?key=e15240371508f21838848c29a618630a";
 
-    const destination = destinations[Math.floor(Math.random() * destinations.length)];
-
-    gtag('event', 'redirect_click', {
-      destination: destination,
-      timestamp: new Date().toISOString()
-    });
-
-    setTimeout(() => {
+  // Kirim event + redirect setelah event terkirim
+  gtag('event', 'redirect_click', {
+    event_category: 'redirect',
+    event_label: destination,
+    transport_type: 'beacon',
+    event_callback: function () {
       window.location.href = destination;
-    }, 0);
-  </script>
-  
+    }
+  });
+
+  // Fallback jika GA diblokir (WAJIB)
+  setTimeout(() => {
+    window.location.href = destination;
+  }, 1200);
+</script>
 </body>
 </html>
